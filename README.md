@@ -73,7 +73,8 @@ facial-attendance-system/
 ├── Attendance/            
 ├── app.py                 
 ├── background-img.png     
-├── face_recognition.py    
+├── face_data.py
+├── attendance_system.py
 ├── requirements.txt       
 └── README.md              
 ```
