@@ -1,145 +1,101 @@
-# Face Recognition Attendance System  
+# Facial Attendance System
 
-A real-time face recognition-based attendance system using OpenCV, KNN classifier, and Haar cascades. The system captures live video feed, detects faces, and records attendance in a CSV file with the timestamp.
+## Overview
 
----
-
-## Features  
-- **Face Detection**: Uses Haar Cascade Classifier to detect faces from live video feed.  
-- **Face Recognition**: Implements K-Nearest Neighbors (KNN) to recognize faces from the dataset.  
-- **Attendance Logging**: Automatically logs recognized faces with the current time into a CSV file.  
-- **Voice Feedback**: Announces attendance logging using the SAPI voice engine (Windows only).  
+The **Facial Attendance System** is a Python-based application that uses facial recognition to automate attendance tracking. It leverages machine learning with k-Nearest Neighbors (kNN), OpenCV for face detection, and Streamlit for web-based data visualization.
 
 ---
 
-## Prerequisites  
-Ensure the following are installed:  
+## Features
 
-- Python 3.x  
-- OpenCV  
-- NumPy  
-- Scikit-learn  
-- Pickle  
-- PyWin32 (for voice feedback)  
+- **Real-time Facial Recognition**: Detect and recognize faces from a live webcam feed.
+- **Attendance Logging**: Automatically logs attendance with name and timestamp into a CSV file.
+- **Streamlit Integration**: View attendance data directly in a web interface.
+- **Storage Management**: Stores face data for multiple users using pickle files for easy access and retrieval.
 
 ---
 
-## Installation  
+## Technologies Used
 
-1. Clone the repository:  
+- **Python**: Core programming language.
+- **OpenCV**: For face detection and image processing.
+- **Streamlit**: For web-based visualization.
+- **scikit-learn**: Machine learning library for classification.
+- **pickle**: For saving and loading face data and labels.
+- **Win32com**: For text-to-speech functionality on Windows.
+
+---
+
+## Installation
+
+1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/face-recognition-attendance.git
-   cd face-recognition-attendance
-   ```  
+   git clone https://github.com/Bibekbb/face-recognition-attendance.git
+   cd facial-attendance-system
+   ```
 
-2. Install required dependencies:  
+2. Install required dependencies:
    ```bash
    pip install -r requirements.txt
-   ```  
+   ```
 
-3. Create a directory structure:  
-   ```plaintext
-   data/
-       haarcascade_frontalface_default.xml
-       faces_data.pkl
-       names.pkl
-   Attendance/
-   background.png
-   ```  
-
-4. Add the `haarcascade_frontalface_default.xml` file in the `data/` directory.  
+3. Place the required files in the `data/` folder:
+   - `haarcascade_frontalface_default.xml`
+   - `names.pkl`
+   - `faces_data.pkl`
 
 ---
 
-## Usage  
+## How to Run
 
-### Step 1: Register Faces  
-1. Run the face registration script:  
+### Real-Time Facial Recognition
+1. Run the real-time face detection script:
    ```bash
-   python register_faces.py
-   ```  
-2. Enter the name when prompted.  
-3. The script will capture 100 face images and save them to `data/faces_data.pkl` and `data/names.pkl`.  
+   python face_recognition.py
+   ```
+2. Press `o` to log attendance or `q` to quit the application.
 
-### Step 2: Start Attendance System  
-1. Run the main script:  
+### Viewing Attendance
+1. Run the Streamlit application:
    ```bash
-   python attendance_system.py
-   ```  
-2. Point the camera at registered individuals.  
-3. Press **`o`** to log attendance.  
-4. Press **`q`** to exit the system.  
-
-### Step 3: View Attendance Logs  
-Check the `Attendance/` directory for daily CSV files named as `Attendance_<date>.csv`.  
+   streamlit run app.py
+   ```
+2. Upload the attendance CSV file to view data.
 
 ---
 
-## Folder Structure  
-```plaintext
-face-recognition-attendance/
+## Folder Structure
+
+```
+facial-attendance-system/
 │
-├── Attendance/  
-│   ├── Attendance_<date>.csv
-│ 
-├── data/  
-│   ├── haarcascade_frontalface_default.xml  
-│   ├── faces_data.pkl  
-│   ├── names.pkl   
-│
-├── app.py
-├── faces_data.py  
-├── attendance_system.py  
-├── background-img.png  
-├── requirements.txt  
-├── README.md  
-```  
+├── data/                  
+├── Attendance/            
+├── app.py                 
+├── background-img.png     
+├── face_recognition.py    
+├── requirements.txt       
+└── README.md              
+```
 
 ---
 
-## How It Works  
-1. **Face Registration**:  
-   - Captures images from the webcam.  
-   - Preprocesses and saves the data for training.  
+## Contributing
 
-2. **Face Recognition**:  
-   - Detects faces in real-time using Haar cascades.  
-   - Recognizes faces using the KNN classifier.  
-
-3. **Attendance Logging**:  
-   - Matches detected faces with the dataset.  
-   - Logs attendance in a daily CSV file with the timestamp.  
+Contributions are welcome! Fork the repository and submit a pull request.
 
 ---
 
-## Dependencies  
-- OpenCV  
-- NumPy  
-- Scikit-learn  
-- Pickle  
-- PyWin32  
+## License
 
-Install them using the `requirements.txt` file:  
-```bash
-pip install -r requirements.txt
-```  
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
-## Contributions  
-Feel free to fork this repository and create pull requests for improvements.  
+## Acknowledgments
 
----
-
-## License  
-This project is licensed under the MIT License.  
-
----
-
-## Acknowledgments  
-- OpenCV for computer vision functionalities.  
-- Scikit-learn for the KNN classifier.  
-- Haar cascades for face detection.  
-- PyWin32 for voice feedback.  
-
+- OpenCV team for their robust computer vision library.
+- Scikit-learn for powerful machine learning tools.
+- Streamlit for easy-to-build web apps.
+ 
 **Happy Coding!** 😊
